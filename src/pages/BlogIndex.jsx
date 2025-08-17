@@ -16,10 +16,10 @@ export default function BlogIndex() {
       <ul className="mt-6 space-y-4">
         {posts.map(p => (
           <li key={p.slug} className="group">
-            <Link to={`/blog/${p.slug}`} className="text-xl font-medium text-teal-300 group-hover:underline">
+            <Link to={`/blog/${p.slug}`} className="text-xl font-medium text-accent group-hover:underline">
               {p.title}
             </Link>
-            <div className="text-sm text-zinc-400">{new Date(p.date).toLocaleDateString()} • {p.description}</div>
+            <div className="text-sm text-fg/70">{new Date(p.date).toLocaleDateString()} • {p.description}</div>
           </li>
         ))}
       </ul>

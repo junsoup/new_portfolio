@@ -6,6 +6,19 @@
 
 @import "tailwindcss";
 
+/* Disable color transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root.theme-animate, :root.theme-animate * { transition: none !important; }
+}
+
+/* When .theme-animate is on <html>, smoothly transition color-like props */
+:root.theme-animate,
+:root.theme-animate * {
+  transition-property: color, background-color, border-color, fill, stroke, outline-color, text-decoration-color;
+  transition-duration: 220ms;
+  transition-timing-function: ease;
+}
+
 :root {
 /*
   --c-bg-light: #ffffff;

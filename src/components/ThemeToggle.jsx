@@ -29,8 +29,8 @@ export default function ThemeToggle() {
       type="button"
       aria-label="Toggle theme"
       title="Toggle theme"
-      className="inline-flex items-center justify-center rounded-full border border-white/15 hover:border-white/35
-                 bg-transparent p-2 text-[color:var(--fg)]/80 hover:text-[var(--accent)] transition"
+      className="inline-flex items-center justify-center rounded-full border border-fg/15 hover:border-fg/35
+                 bg-transparent p-2 text-fg/80 hover:text-accent transition"
     >
       {/* Show current mode icon (optional: show target instead if you prefer) */}
       {isDark ? <MoonIcon /> : <SunIcon />}

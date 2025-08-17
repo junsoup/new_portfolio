@@ -19,7 +19,7 @@ export default function Post() {
   return (
     <article className="prose prose-invert max-w-none">
       {data?.title && <h1>{data.title}</h1>}
-      {dateStr && <p className="text-sm text-zinc-400">{dateStr}</p>}
+      {dateStr && <p className="text-sm text-fg/50">{dateStr}</p>}
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </article>
   )
