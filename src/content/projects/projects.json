@@ -1,0 +1,14 @@
+[
+  {
+    "title": "LLM Draft Assistant",
+    "summary": "Electron app that suggests optimal picks using ONNX + MCTS.",
+    "tags": ["Electron","ML","MCTS"],
+    "links": { "code": "https://github.com/you/llm-draft", "demo": "#" }
+  },
+  {
+    "title": "Wind Sim",
+    "summary": "Three.js terrain + Navier-Stokes playground.",
+    "tags": ["Three.js","Simulation"],
+    "links": { "code": "https://github.com/you/wind", "demo": "#" }
+  }
+]
