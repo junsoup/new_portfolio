@@ -2,9 +2,57 @@
   {
     "slug": "hello-world",
     "title": "Hello World!",
-    "date": "2025-08-02",
+    "date": "2025-08-27",
     "description": "The beginning of the end... or, the end of the beginning? idk. something like that.",
+    "cover": ""
+  },
+  {
+    "slug": "league-pt2",
+    "title": "League of Legends project 2/2",
+    "date": "2025-06-24",
+    "description": "I was off my meds on this one.",
+    "cover": ""
+  },
+  {
+    "slug": "bio-network",
+    "title": "Biologically-inspired Neural Network",
+    "date": "2025-06-07",
+    "description": "mmm... brains...",
+    "cover": ""
+  },
+  {
+    "slug": "league-pt1",
+    "title": "League of Legends project 1/2",
+    "date": "2025-05-14",
+    "description": "I hate losing my league games.",
+    "cover": ""
+  },
+  {
+    "slug": "april-2025",
+    "title": "Catch up",
+    "date": "2025-04-15",
+    "description": "Two new projects completed!",
+    "cover": ""
+  },
+  {
+    "slug": "january-2025",
+    "title": "Just joking!",
+    "date": "2025-01-27",
+    "description": "A bright future?",
+    "cover": ""
+  },
+  {
+    "slug": "october-2024",
+    "title": "The fastest fold.",
+    "date": "2024-08-26",
+    "description": "The frontend stack dilemma...",
+    "cover": ""
+  },
+  {
+    "slug": "hello-2024",
+    "title": "First blog post!",
+    "date": "2024-08-01",
+    "description": "The first of many... hopefully.",
     "cover": ""
   }
 ]
-
