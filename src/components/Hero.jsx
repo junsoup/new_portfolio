@@ -29,7 +29,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-4 text-fg/80 max-w-xl mx-auto">
-          I build delightful, performant web apps (JS/React, ML, systems).
+          I'm an engineer focused on AI, algorithms, and performant full-stack software.
         </p>
 
         <div className="mt-6 flex justify-center gap-3">
