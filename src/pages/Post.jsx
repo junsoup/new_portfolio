@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useRoute } from "wouter-preact"
 import entries from "../content/posts/blog_entries.json";
-import { parseISO, format } from "date-fns"
 
 // Eager-import all post components: src/content/posts/<slug>.jsx
 const componentsByPath = import.meta.glob("../content/posts/*.jsx", { eager: true });
@@ -57,7 +56,10 @@ function normalizeImages(node) {
 }
 
 export default function Post() {
-  const { slug } = useParams();
+  const [match, params] = useRoute("/blog/:slug")
+  if (!match) return <div>Not found</div>
+
+  const { slug } = params
   const meta = entries.find(e => e.slug === slug);
   if (!meta) return <div>Post not found.</div>;
 
@@ -71,7 +73,7 @@ export default function Post() {
   const raw = <Content />;
   const normalized = normalizeImages(raw);
 
-  const dateStr = meta.date ? format(parseISO(meta.date), "M/d/yyyy") : null;
+  const dateStr = meta.date ? meta.date : null;
 
   return (
     <div className="mx-auto max-w-3xl py-10">
@@ -92,29 +94,12 @@ export default function Post() {
 
             {/* Only the flowing body text gets the ruled background */}
             <div className="lined">
-              <br/>{normalized}<br/><br/>
+              <br />{normalized}<br /><br />
             </div>
           </article>
         </div>
       </div>
     </div>
-  );
-  return (
-    <article className="post-content max-w-none">
-      <h1>{meta.title}</h1>
-      {dateStr && <p className="text-sm text-fg/70">{dateStr}</p>}
-
-      {meta.cover && (
-        <img
-          src={`${baseUrl()}/posts/${meta.cover}`}
-          alt={meta.title}
-          className="block h-auto my-6 rounded-xl"
-          loading="lazy"
-        />
-      )}
-
-      {normalized}
-    </article>
   );
 }
 

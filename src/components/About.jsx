@@ -1,5 +1,5 @@
 // src/pages/About.jsx
-import { Link } from "react-router-dom"
+import { Link } from "wouter-preact"
 export default function About({ id }) {
   return (
     <section id={id} className="mx-auto max-w-5xl px-4 py-4 min-h-[100vh]">
@@ -30,7 +30,7 @@ export default function About({ id }) {
         <p className="mt-4 text-fg/80 leading-relaxed">
           I have passion for all things computer science and I make hobby projects every once in a
           while. More on this in my{" "}
-          <Link to="/blog" className="font-bold hover:text-accent">
+          <Link href="/blog" className="font-bold hover:text-accent">
             blog
           </Link>
           ! I’m strongest with Python workflows and data processing, and I’m specifically interested
@@ -102,7 +102,7 @@ export default function About({ id }) {
       <div className="mt-12">
         <p className="text-fg/80">
           Thanks for stopping by! If you have any questions, feel free to reach out on the{" "}
-          <Link to="/contact" className="font-bold hover:text-accent">
+          <Link href="/contact" className="font-bold hover:text-accent">
             contacts
           </Link>
           {" "}page.

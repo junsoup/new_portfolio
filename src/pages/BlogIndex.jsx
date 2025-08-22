@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from "wouter-preact";
 import entries from "../content/posts/blog_entries.json";
-import { parseISO, format } from "date-fns"
 
 export default function BlogIndex() {
   const posts = [...entries].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -13,13 +12,13 @@ export default function BlogIndex() {
           return (
             <li key={p.slug} className="group">
               <Link
-                to={`/blog/${p.slug}`}
+                href={`/blog/${p.slug}`}
                 className="text-xl font-medium text-accent group-hover:underline"
               >
                 {p.title}
               </Link>
               <div className="text-sm text-fg/70">
-                {format(parseISO(p.date), "MMMM do, yyyy")} <br />
+                {p.date} <br />
                 {p.description ? p.description : ""}
               </div>
             </li>

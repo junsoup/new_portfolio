@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "wouter-preact"
 // src/components/ProjectCard.jsx
 export default function ProjectCard({ p }) {
   const isExternal = (url) => /^https?:\/\//i.test(url)
@@ -54,7 +54,7 @@ export default function ProjectCard({ p }) {
             ) : (
               <Link
                 key={label}
-                to={url}
+                href={url}
                 className="underline hover:text-accent transition-colors"
               >
                 {label.charAt(0).toUpperCase() + label.slice(1)}
@@ -73,7 +73,7 @@ export default function ProjectCard({ p }) {
           />
         ) : (
           <Link
-            to={p.base}
+            href={p.base}
             className="absolute inset-0 z-0"
             aria-label={`View ${p.title}`}
           />

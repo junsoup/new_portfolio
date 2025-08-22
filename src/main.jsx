@@ -1,15 +1,13 @@
-// src/main.jsx
-import React from "react"
-import ReactDOM from "react-dom/client"
-import { HashRouter } from "react-router-dom"
+import { render } from "preact"
+import { Router } from "wouter-preact"
+import { useHashLocation } from "wouter-preact/use-hash-location"
 import App from "./App.jsx"
 import "./index.css"
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </React.StrictMode>
+render(
+  <Router hook={useHashLocation}>
+    <App />
+  </Router>,
+  document.getElementById("root")
 )
 
