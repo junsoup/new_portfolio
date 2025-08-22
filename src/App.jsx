@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import BlogIndex from "./pages/BlogIndex"
 import Post from "./pages/Post"
 import Projects from "./pages/Projects"
+import Contact from "./pages/Contact"
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<Post />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
     </Routes>
   )

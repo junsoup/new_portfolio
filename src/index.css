@@ -8,7 +8,11 @@
 
 /* Disable color transitions for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  :root.theme-animate, :root.theme-animate * { transition: none !important; }
+
+  :root.theme-animate,
+  :root.theme-animate * {
+    transition: none !important;
+  }
 }
 
 /* When .theme-animate is on <html>, smoothly transition color-like props */
@@ -20,7 +24,7 @@
 }
 
 :root {
-/*
+  /*
   --c-bg-light: #ffffff;
   --c-fg-light: #0a0a0a;
   --c-accent-light: #14b8a6;
@@ -34,7 +38,7 @@
   --c-accent-light: #f06440;
 
   --c-bg-dark: #100b0b;
-  --c-fg-dark: #fff;
+  --c-fg-dark: #fffbeb;
   --c-accent-dark: #ffe16b;
 
 }
@@ -71,6 +75,7 @@ body {
 }
 
 s
+
 /* used in /content/posts/*.jsx, applied in /pages/Post.jsx */
 .post-content h1 {
   @apply text-4xl font-bold mt-6 mb-4;
@@ -84,3 +89,133 @@ s
   @apply text-base leading-relaxed mb-4;
 }
 
+
+/* Paper shell + margin rule */
+
+
+/* Desktop: vertical margin line */
+
+/* Desktop (unchanged) */
+.paper {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.paper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(20px, 6vw, 48px);
+  width: 3px;
+  background: color-mix(in srgb, var(--accent) 50%, transparent);
+  pointer-events: none;
+}
+
+/* Mobile: kill vertical */
+@media (max-width: 700px) {
+  .paper {
+    margin: -75px -10px -75px -10px;
+    padding: 0;
+  }
+
+  /* remove desktop vertical line */
+  .paper::after {
+    left: 10px;
+  }
+}
+
+
+/* Lined background + rhythm */
+.lined {
+  /* It seems these magin numbers are meant for this font only. */
+  --rule: 1.625rem;
+  --ink-offset: calc(12px - 0.365em);
+  --line: color-mix(in srgb, currentColor 10%, transparent);
+
+  line-height: var(--rule);
+  background:
+    repeating-linear-gradient(to bottom,
+      var(--line) 0 1px,
+      transparent 1px var(--rule));
+  background-origin: content-box;
+}
+
+.lined p,
+.lined em,
+.lined strong,
+.lined ul,
+.lined ol,
+.lined h3,
+.lined span {
+  transform: translateY(var(--ink-offset));
+}
+
+/* Paragraphs */
+.lined p {
+  margin: 0 0 var(--rule);
+}
+
+.lined p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline emphasis */
+/*
+.lined em,
+.lined strong {
+  font-style: italic;
+  font-weight: 600;
+}
+*/
+
+/* Headings */
+.lined h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.lined a {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.lined a:hover {
+  color: var(--accent);
+}
+
+/* Lists */
+.lined ul {
+  list-style-type: disc;
+}
+
+.lined ul,
+.lined ol {
+  margin: 0 0 var(--rule);
+  padding-left: calc(var(--rule));
+}
+
+.lined li {
+  font-size: 0.9rem;
+}
+
+/* .lined li::marker { color: var(--accent); } */
+
+/* Images */
+.lined img {
+  border: 2px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+
+/* Image size macros */
+img.rows-2 { height: calc(var(--rule) * 2); }
+img.rows-4 { height: calc(var(--rule) * 4); }
+img.rows-6 { height: calc(var(--rule) * 6); }
+img.rows-8 { height: calc(var(--rule) * 8); }
+img.rows-10 { height: calc(var(--rule) * 10); }
+img.rows-12 { height: calc(var(--rule) * 12); }
+img.rows-14 { height: calc(var(--rule) * 14); }
+img.rows-16 { height: calc(var(--rule) * 16); }
+img.rows-18 { height: calc(var(--rule) * 18); }
+img.rows-20 { height: calc(var(--rule) * 20); }
+img.rows-22 { height: calc(var(--rule) * 22); }
+img.rows-24 { height: calc(var(--rule) * 24); }

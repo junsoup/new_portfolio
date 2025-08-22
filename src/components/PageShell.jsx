@@ -9,8 +9,9 @@ export default function PageShell() {
         <nav className="mx-auto flex max-w-5xl items-center gap-6 px-4 py-3">
           <Link to="/" className="font-bold">Junsu Lee</Link>
           <div className="ml-auto flex items-center gap-4 text-fg/80">
-            <Link to="/blog" className="hover:text-accent">Blog</Link>
             <Link to="/projects" className="hover:text-accent">Projects</Link>
+            <Link to="/blog" className="hover:text-accent">Blog</Link>
+            <Link to="/contact" className="hover:text-accent">Contact</Link>
             <ThemeToggle />
           </div>
         </nav>

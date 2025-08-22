@@ -28,8 +28,8 @@ export default function Hero() {
           Hi, I&apos;m <span className="text-accent">Junsu</span>
         </h1>
 
-        <p className="mt-4 text-fg/70 max-w-xl mx-auto">
-          I build delightful, performant web apps (JS/Preact, ML, systems).
+        <p className="mt-4 text-fg/80 max-w-xl mx-auto">
+          I build delightful, performant web apps (JS/React, ML, systems).
         </p>
 
         <div className="mt-6 flex justify-center gap-3">

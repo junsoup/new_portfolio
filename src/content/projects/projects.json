@@ -1,14 +1,43 @@
 [
   {
-    "title": "LLM Draft Assistant",
+    "title": "Koi Fish",
+    "summary": "3D simulation of koi fish using THREE.js and custom Boids implementation.",
+    "tags": ["Three.js","Mesh Instancing","GTLF/shaders", "3D Modeling", "Boids"],
+    "links": { "demo": "" }
+  },
+  {
+    "title": "League of Legends Draft Assistant",
     "summary": "Electron app that suggests optimal picks using ONNX + MCTS.",
     "tags": ["Electron","ML","MCTS"],
-    "links": { "code": "https://github.com/you/llm-draft", "demo": "#" }
+    "links": { "blog 1": "/blog/league-pt1", "blog 2": "/blog/league-pt2" },
+    "base": "/blog/league-pt1"
+  },
+  {
+    "title": "Biologically-inspired Neural Network",
+    "summary": "Custom brain-based network architecture.",
+    "tags": ["ML","Fast-Fourier Transform","Continuous Thought Machine"],
+    "status": "Under Construction",
+    "links": { "blog": "/blog/bio-network" },
+    "base": "/blog/bio-network"
+  },
+  {
+    "title": "Apple Destroyer",
+    "summary": "An attempt to beat a board game called Fruit Box using code.",
+    "tags": ["MTCS","OpenCV","Heuristics"],
+    "links": { "code": "https://github.com/junsoup/Apple-Destroyer" },
+    "base": "https://github.com/junsoup/Apple-Destroyer"
   },
   {
     "title": "Wind Sim",
     "summary": "Three.js terrain + Navier-Stokes playground.",
     "tags": ["Three.js","Simulation"],
-    "links": { "code": "https://github.com/you/wind", "demo": "#" }
+    "status": "Under Construction",
+    "links": {}
+  },
+  {
+    "title": "Previous Portfolio Site",
+    "summary": "Old site. No longer maintained as of Aug. 21st, 2025.",
+    "tags": ["HTML / CSS / JS"],
+    "links": {}
   }
 ]

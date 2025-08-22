@@ -74,6 +74,32 @@ export default function Post() {
   const dateStr = meta.date ? format(parseISO(meta.date), "M/d/yyyy") : null;
 
   return (
+    <div className="mx-auto max-w-3xl py-10">
+      <div className="paper rounded-2xl ring-1 ring-fg/10 shadow-lg shadow-black/15 bg-fg/5">
+        <div className="p-6 md:p-10">
+          <article className="post-content max-w-none">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-accent">{meta.title}</h1>
+            {dateStr && <p className="mt-2 text-sm text-fg/70">{dateStr}</p>}
+
+            {meta.cover && (
+              <img
+                src={`${baseUrl()}/posts/${meta.cover}`}
+                alt={meta.title}
+                className="block h-auto my-6 rounded-xl border border-fg/10 shadow-sm"
+                loading="lazy"
+              />
+            )}
+
+            {/* Only the flowing body text gets the ruled background */}
+            <div className="lined">
+              <br/>{normalized}<br/><br/>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  );
+  return (
     <article className="post-content max-w-none">
       <h1>{meta.title}</h1>
       {dateStr && <p className="text-sm text-fg/70">{dateStr}</p>}
