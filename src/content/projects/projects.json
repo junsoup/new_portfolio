@@ -1,5 +1,12 @@
 [
   {
+    "title": "Current Portfolio Website",
+    "summary": "This personal site build with a lightweight stack (less than 52KB!). Deployed on GitHub Pages.",
+    "tags": ["Preact", "Tailwind", "Wouter", "Vite"],
+    "links": { "code": "https://github.com/junsoup/new_portfolio" },
+    "base": "https://github.com/junsoup/new_portfolio"
+  },
+  {
     "title": "Koi Fish",
     "summary": "3D simulation of koi fish using THREE.js and custom Boids implementation.",
     "tags": ["Three.js","Mesh Instancing","GTLF/shaders", "3D Modeling", "Boids"],
@@ -35,7 +42,7 @@
     "links": {}
   },
   {
-    "title": "Previous Portfolio Site",
+    "title": "Previous Portfolio Website",
     "summary": "Old site. No longer maintained as of Aug. 21st, 2025.",
     "tags": ["HTML / CSS / JS"],
     "links": { "code": "https://github.com/junsoup/portfolio", "demo": "https://junsoup.github.io/portfolio/"},
