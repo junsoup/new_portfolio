@@ -1,4 +1,4 @@
-import { Link } from "wouter-preact"
+import { Link, useLocation } from "wouter-preact"
 // src/components/ProjectCard.jsx
 export default function ProjectCard({ p }) {
   const [, navigate] = useLocation()
