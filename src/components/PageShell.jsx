@@ -11,6 +11,14 @@ export default function PageShell({ children }) {
           <div className="ml-auto flex items-center gap-4 text-fg/80">
             <Link href="/projects" className="hover:text-accent">Projects</Link>
             <Link href="/blog" className="hover:text-accent">Blog</Link>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent"
+            >
+              Resume
+            </a>
             <Link href="/contact" className="hover:text-accent">Contact</Link>
             <ThemeToggle />
           </div>
