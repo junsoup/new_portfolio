@@ -1,7 +1,6 @@
-import { Link, useLocation } from "wouter-preact"
+import { Link } from "wouter-preact"
 // src/components/ProjectCard.jsx
 export default function ProjectCard({ p }) {
-  const [, navigate] = useLocation()
 
   const isExternal = (url = "") => /^https?:\/\//i.test(url)
   const normalizeInternal = (url = "") => {
@@ -9,16 +8,38 @@ export default function ProjectCard({ p }) {
     return noHash.startsWith("/") ? noHash : `/${noHash}`
   }
 
-  function handleCardClick() {
-    if (!p.base) return
-    if (isExternal(p.base)) {
-      window.open(p.base, "_blank", "noopener")
-    } else {
-      navigate(normalizeInternal(p.base))
+  // navigate when the card background is clicked
+  const onCardClick = (e) => {
+    // if the user clicked an actual link inside, let it handle itself
+    const tag = e.target.closest("a")
+    if (tag) return
+
+    if (p.base) {
+      if (isExternal(p.base)) {
+        window.open(p.base, "_blank", "noopener")
+      } else {
+        // internal SPA nav
+        window.location.hash = "#" + normalizeInternal(p.base)
+      }
     }
   }
+
+  // keyboard accessibility for the card
+  const onKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      onCardClick(e)
+    }
+  }
+
+
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-fg/10 p-5 hover:border-accent/70 transition">
+    <div className="relative rounded-2xl overflow-hidden border border-fg/10 p-5 hover:border-accent/70 transition cursor-pointer" role={p.base ? "link" : undefined}
+      tabIndex={p.base ? 0 : undefined}
+      onClick={onCardClick}
+      onKeyDown={onKeyDown}
+      aria-label={p.base ? `View ${p.title}` : undefined}
+    >
 
       {/* Ribbon (shown only if p.status is provided) */}
       {p.status && (
@@ -57,29 +78,32 @@ export default function ProjectCard({ p }) {
         {Object.entries(p.links || {}).map(([label, url]) => {
           if (!url) return null
           const text = label.charAt(0).toUpperCase() + label.slice(1)
+          const stop = (e) => e.stopPropagation()
+
           return isExternal(url) ? (
-            <a key={label} href={url} target="_blank" rel="noopener noreferrer"
-              className="underline hover:text-accent transition-colors">
+            <a
+              key={label}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={stop}
+              className="underline hover:text-accent transition-colors"
+            >
               {text}
             </a>
           ) : (
-            <Link key={label} href={normalizeInternal(url)} className="underline hover:text-accent transition-colors">
+            <Link
+              key={label}
+              href={normalizeInternal(url)}
+              onClick={stop}
+              className="underline hover:text-accent transition-colors"
+            >
               {text}
             </Link>
           )
         })}
       </div>
-
-      {/* Full-card overlay as a button (fixes iOS/Chrome quirk) */}
-      {p.base && (
-        <button
-          type="button"
-          onClick={handleCardClick}
-          aria-label={`View ${p.title}`}
-          className="absolute inset-0 z-0"
-        />
-      )}
     </div>
-  );
+  )
 }
 
