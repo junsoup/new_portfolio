@@ -1,45 +1,9 @@
 import { Link } from "wouter-preact"
 // src/components/ProjectCard.jsx
 export default function ProjectCard({ p }) {
-
-  const isExternal = (url = "") => /^https?:\/\//i.test(url)
-  const normalizeInternal = (url = "") => {
-    const noHash = url.replace(/^#/, "")
-    return noHash.startsWith("/") ? noHash : `/${noHash}`
-  }
-
-  // navigate when the card background is clicked
-  const onCardClick = (e) => {
-    // if the user clicked an actual link inside, let it handle itself
-    const tag = e.target.closest("a")
-    if (tag) return
-
-    if (p.base) {
-      if (isExternal(p.base)) {
-        window.open(p.base, "_blank", "noopener")
-      } else {
-        // internal SPA nav
-        window.location.hash = "#" + normalizeInternal(p.base)
-      }
-    }
-  }
-
-  // keyboard accessibility for the card
-  const onKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault()
-      onCardClick(e)
-    }
-  }
-
-
+  const isExternal = (url) => /^https?:\/\//i.test(url)
   return (
-    <div className="relative rounded-2xl overflow-hidden border border-fg/10 p-5 hover:border-accent/70 transition cursor-pointer" role={p.base ? "link" : undefined}
-      tabIndex={p.base ? 0 : undefined}
-      onClick={onCardClick}
-      onKeyDown={onKeyDown}
-      aria-label={p.base ? `View ${p.title}` : undefined}
-    >
+    <div className="relative overflow-hidden rounded-2xl border border-fg/10 p-5 hover:border-accent/70 transition">
 
       {/* Ribbon (shown only if p.status is provided) */}
       {p.status && (
@@ -75,35 +39,46 @@ export default function ProjectCard({ p }) {
 
       {/* flexible links */}
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm relative z-10">
-        {Object.entries(p.links || {}).map(([label, url]) => {
-          if (!url) return null
-          const text = label.charAt(0).toUpperCase() + label.slice(1)
-          const stop = (e) => e.stopPropagation()
-
-          return isExternal(url) ? (
-            <a
-              key={label}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={stop}
-              className="underline hover:text-accent transition-colors"
-            >
-              {text}
-            </a>
-          ) : (
-            <Link
-              key={label}
-              href={normalizeInternal(url)}
-              onClick={stop}
-              className="underline hover:text-accent transition-colors"
-            >
-              {text}
-            </Link>
-          )
-        })}
-      </div>
+        {Object.entries(p.links || {}).map(([label, url]) =>
+          url ? (
+            isExternal(url) ? (
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-accent transition-colors"
+              >
+                {label.charAt(0).toUpperCase() + label.slice(1)}
+              </a>
+            ) : (
+              <Link
+                key={label}
+                href={url}
+                className="underline hover:text-accent transition-colors"
+              >
+                {label.charAt(0).toUpperCase() + label.slice(1)}
+              </Link>
+            )
+          ) : null
+        )}      </div>
+      {p.base &&
+        (isExternal(p.base) ? (
+          <a
+            href={p.base}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 z-0"
+            aria-label={`View ${p.title}`}
+          />
+        ) : (
+          <Link
+            href={p.base}
+            className="absolute inset-0 z-0"
+            aria-label={`View ${p.title}`}
+          />
+        ))}
     </div>
-  )
+  );
 }
 

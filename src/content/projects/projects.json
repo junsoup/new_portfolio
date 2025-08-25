@@ -46,6 +46,6 @@
     "summary": "Old site. No longer maintained as of Aug. 21st, 2025.",
     "tags": ["HTML / CSS / JS"],
     "links": { "code": "https://github.com/junsoup/portfolio", "demo": "https://junsoup.github.io/portfolio/"},
-    "base" : "https://junsoup.github.io/portfolio"
+    "base" : "https://junsoup.github.io/portfolio/"
   }
 ]
