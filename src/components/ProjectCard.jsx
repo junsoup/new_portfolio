@@ -1,7 +1,22 @@
 import { Link } from "wouter-preact"
 // src/components/ProjectCard.jsx
 export default function ProjectCard({ p }) {
-  const isExternal = (url) => /^https?:\/\//i.test(url)
+  const [, navigate] = useLocation()
+
+  const isExternal = (url = "") => /^https?:\/\//i.test(url)
+  const normalizeInternal = (url = "") => {
+    const noHash = url.replace(/^#/, "")
+    return noHash.startsWith("/") ? noHash : `/${noHash}`
+  }
+
+  function handleCardClick() {
+    if (!p.base) return
+    if (isExternal(p.base)) {
+      window.open(p.base, "_blank", "noopener")
+    } else {
+      navigate(normalizeInternal(p.base))
+    }
+  }
   return (
     <div className="relative overflow-hidden rounded-2xl border border-fg/10 p-5 hover:border-accent/70 transition">
 
@@ -39,45 +54,31 @@ export default function ProjectCard({ p }) {
 
       {/* flexible links */}
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm relative z-10">
-        {Object.entries(p.links || {}).map(([label, url]) =>
-          url ? (
-            isExternal(url) ? (
-              <a
-                key={label}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-accent transition-colors"
-              >
-                {label.charAt(0).toUpperCase() + label.slice(1)}
-              </a>
-            ) : (
-              <Link
-                key={label}
-                href={url}
-                className="underline hover:text-accent transition-colors"
-              >
-                {label.charAt(0).toUpperCase() + label.slice(1)}
-              </Link>
-            )
-          ) : null
-        )}      </div>
-      {p.base &&
-        (isExternal(p.base) ? (
-          <a
-            href={p.base}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute inset-0 z-0"
-            aria-label={`View ${p.title}`}
-          />
-        ) : (
-          <Link
-            href={p.base}
-            className="absolute inset-0 z-0"
-            aria-label={`View ${p.title}`}
-          />
-        ))}
+        {Object.entries(p.links || {}).map(([label, url]) => {
+          if (!url) return null
+          const text = label.charAt(0).toUpperCase() + label.slice(1)
+          return isExternal(url) ? (
+            <a key={label} href={url} target="_blank" rel="noopener noreferrer"
+              className="underline hover:text-accent transition-colors">
+              {text}
+            </a>
+          ) : (
+            <Link key={label} href={normalizeInternal(url)} className="underline hover:text-accent transition-colors">
+              {text}
+            </Link>
+          )
+        })}
+      </div>
+
+      {/* Full-card overlay as a button (fixes iOS/Chrome quirk) */}
+      {p.base && (
+        <button
+          type="button"
+          onClick={handleCardClick}
+          aria-label={`View ${p.title}`}
+          className="absolute inset-0 z-0"
+        />
+      )}
     </div>
   );
 }
