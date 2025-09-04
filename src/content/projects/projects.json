@@ -7,10 +7,11 @@
     "base": "https://github.com/junsoup/new_portfolio"
   },
   {
-    "title": "Koi Fish",
+    "title": "Koi Fish v2",
     "summary": "3D simulation of koi fish using THREE.js and custom Boids implementation.",
     "tags": ["Three.js","Mesh Instancing","GTLF/shaders", "3D Modeling", "Boids"],
-    "links": { "demo": "" }
+    "links": { "code": "https://github.com/junsoup/koi-app/", "demo": "https://junsoup.github.io/koi-app/" },
+    "base": "https://junsoup.github.io/koi-app/"
   },
   {
     "title": "League of Legends Draft Assistant",

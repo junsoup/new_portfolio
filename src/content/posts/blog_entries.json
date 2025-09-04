@@ -1,5 +1,12 @@
 [
   {
+    "slug": "koi-app",
+    "title": "Koi fish remake",
+    "date": "2025-09-07",
+    "description": "Decided to remake the koi renderer that is on the old portfolio.",
+    "cover": ""
+  },
+  {
     "slug": "hello-world",
     "title": "Hello World!",
     "date": "2025-08-27",
