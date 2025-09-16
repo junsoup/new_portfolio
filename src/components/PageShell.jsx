@@ -1,5 +1,5 @@
 // src/components/PageShell.jsx
-import { Link } from "wouter-preact"
+import { Link } from "wouter"
 import ThemeToggle from "./ThemeToggle"
 
 export default function PageShell({ children }) {

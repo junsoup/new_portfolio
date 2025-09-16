@@ -1,10 +1,11 @@
-import { defineConfig } from 'vite'
-import preact from '@preact/preset-vite'
-import tailwindcss from '@tailwindcss/vite'
-// import { visualizer } from "rollup-plugin-visualizer"
 
-// https://vite.dev/config/
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineConfig({
-  plugins: [preact(), tailwindcss()],
-  base: '/'
+  plugins: [react(), tailwindcss()],
+  base: '/',
 })
+

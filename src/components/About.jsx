@@ -1,5 +1,5 @@
 // src/pages/About.jsx
-import { Link } from "wouter-preact"
+import { Link } from "wouter"
 export default function About({ id }) {
   return (
     <section id={id} className="mx-auto max-w-5xl px-4 py-4 min-h-[100vh]">

@@ -1,4 +1,4 @@
-import { Link } from "wouter-preact";
+import { Link } from "wouter";
 import entries from "../content/posts/blog_entries.json";
 
 export default function BlogIndex() {

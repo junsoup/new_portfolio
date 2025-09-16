@@ -1,4 +1,4 @@
-import { useRoute } from "wouter-preact"
+import { useRoute } from "wouter"
 import entries from "../content/posts/blog_entries.json";
 
 // Eager-import all post components: src/content/posts/<slug>.jsx

@@ -1,4 +1,4 @@
-import { Link } from "wouter-preact"
+import { Link } from "wouter"
 // src/components/ProjectCard.jsx
 export default function ProjectCard({ p }) {
   const isExternal = (url) => /^https?:\/\//i.test(url)

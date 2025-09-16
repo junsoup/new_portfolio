@@ -1,6 +1,5 @@
 // src/App.jsx
-import { Router, Route, Switch } from "wouter-preact"
-import { useHashLocation } from "wouter-preact/use-hash-location"
+import { Route, Switch } from "wouter"
 import PageShell from "./components/PageShell"
 import Home from "./pages/Home"
 import BlogIndex from "./pages/BlogIndex"
@@ -10,18 +9,32 @@ import Contact from "./pages/Contact"
 
 export default function App() {
   return (
-    <Router hook={useHashLocation}>
-      <PageShell>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/blog" component={BlogIndex} />
-          <Route path="/blog/:slug" component={Post} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/contact" component={Contact} />
-          <Route>404 not found</Route>
-        </Switch>
-      </PageShell>
-    </Router>
+    <PageShell>
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+
+        <Route path="/blog">
+          <BlogIndex />
+        </Route>
+
+        <Route path="/blog/:slug">
+          {({ slug }) => <Post slug={slug} />}
+        </Route>
+
+        <Route path="/projects">
+          <Projects />
+        </Route>
+
+        <Route path="/contact">
+          <Contact />
+        </Route>
+
+        {/* Fallback */}
+        <Route>404 not found</Route>
+      </Switch>
+    </PageShell>
   )
 }
 

@@ -1,6 +1,9 @@
+
 // src/components/Hero.jsx
-import { useLayoutEffect, useRef } from 'preact/hooks'
+import { useLayoutEffect, useRef } from 'react'
 import { animate } from '@motionone/dom'
+
+const NAV_OFFSET = 100
 
 export default function Hero() {
   const ref = useRef(null)
@@ -8,22 +11,63 @@ export default function Hero() {
   useLayoutEffect(() => {
     const el = ref.current
     if (!el) return
-
-    // Start on the next frame so the initial inline styles are applied pre-paint
     const raf = requestAnimationFrame(() => {
-      animate(
-        el,
-        { opacity: 1, transform: 'translateY(0px)' },
-        { duration: 0.4, easing: 'ease-out' }
-      )
+      animate(el, { opacity: 1, transform: 'translateY(0px)' }, { duration: 0.4, easing: 'ease-out' })
     })
     return () => cancelAnimationFrame(raf)
   }, [])
 
   return (
-    <section className="min-h-[calc(100dvh-100px)] pb-[100px] grid place-items-center text-center">
-      {/* Initial state is inlined so it never flashes visible before animating */}
-      <div ref={ref} style={{ opacity: 0, transform: 'translateY(8px)' }}>
+    <section
+      className="
+        relative
+        min-h-[calc(100dvh-100px)] pb-[100px]
+        grid place-items-center text-center
+        w-screen -ml-[50vw] left-1/2
+        overflow-visible
+        [overflow-x:clip]   /* Tailwind arbitrary: clip X only, allow Y to show */
+      "
+    >
+      <iframe
+        id="koi"
+        src="https://junsoup.github.io/koi-app/?headless=true"
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: `-${NAV_OFFSET}px`,
+          left: 0,
+          width: '100%',
+          height: `calc(100dvh)`,
+          border: '0',
+          display: 'block',
+          opacity: 0.5,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+      />
+
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: `calc(96px)`,
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--bg, rgba(0,0,0,0.85)) 100%)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+
+      <div
+        ref={ref}
+        className="relative z-10"
+        style={{ opacity: 0, transform: 'translateY(8px)' }}
+      >
         <h1 className="text-5xl font-bold">
           Hi, I&apos;m <span className="text-accent">Junsu</span>
         </h1>
@@ -33,10 +77,16 @@ export default function Hero() {
         </p>
 
         <div className="mt-6 flex justify-center gap-3">
-          <a href="#/projects" className="px-4 py-2 rounded-xl border border-fg/15 hover:border-fg/35 transition-colors">
+          <a
+            href="#/projects"
+            className="px-4 py-2 rounded-xl border border-fg/15 hover:border-fg/35 transition-colors"
+          >
             Projects
           </a>
-          <a href="#/blog" className="px-4 py-2 rounded-xl border border-fg/15 hover:border-fg/35 transition-colors">
+          <a
+            href="#/blog"
+            className="px-4 py-2 rounded-xl border border-fg/15 hover:border-fg/35 transition-colors"
+          >
             Blog
           </a>
         </div>

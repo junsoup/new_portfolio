@@ -1,13 +1,18 @@
-import { render } from "preact"
-import { Router } from "wouter-preact"
-import { useHashLocation } from "wouter-preact/use-hash-location"
+// src/main.jsx
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import { Router } from "wouter"
+import { useHashLocation } from "wouter/use-hash-location"
 import App from "./App.jsx"
 import "./index.css"
 
-render(
-  <Router hook={useHashLocation}>
-    <App />
-  </Router>,
-  document.getElementById("root")
+const root = createRoot(document.getElementById("root"))
+
+root.render(
+  <StrictMode>
+    <Router hook={useHashLocation}>
+      <App />
+    </Router>
+  </StrictMode>
 )
 

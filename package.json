@@ -1,6 +1,6 @@
 {
   "name": "new_portfolio",
-  "private": true,
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -10,15 +10,15 @@
     "gen:posts": "node scripts/generate-posts.mjs"
   },
   "dependencies": {
-    "@motionone/dom": "^10.18.0",
-    "preact": "^10.27.1",
-    "wouter-preact": "^3.7.1"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "wouter": "^3.7.1",
+    "tailwindcss": "^4.1.13",
+    "@motionone/dom": "^10.18.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.10.2",
-    "@tailwindcss/vite": "^4.1.11",
-    "@vitejs/plugin-react": "^5.0.0",
-    "rollup-plugin-visualizer": "^6.0.3",
-    "vite": "^7.1.2"
+    "@tailwindcss/vite": "^4.1.13",
+    "@vitejs/plugin-react": "^5.0.2",
+    "vite": "^7.1.5"
   }
 }
