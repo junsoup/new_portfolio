@@ -6,7 +6,7 @@ export default function _() {
       { /* <img src="/posts/megu_cropped.jpg" alt="megumin" className="rounded-full my-4 w-64" /> */}
       <p>Last week, I focused on building this site and getting it running. This week, I decided to recreate the koi banner on my previous portfolio site which I built about half a year ago.</p>
       <img src="/posts/fish.jpg" alt="old fish project" className="mx-auto rows-8" />
-      <i className="flex justify-center"><a target="_blank" href="https://junsoup.github.io/koi-app">Old Koi Project</a></i><br />
+      <i className="flex justify-center"><a target="_blank" href="https://junsoup.github.io/portfolio">Old Koi Project</a></i><br />
       <p>I went slightly into it on an older <a href='#/blog/april-2025'>blog post</a>, but as a quick <b>tl;dr</b>, I had some issues with the old one.</p>
       <h3>Issues:</h3>
       <ul>

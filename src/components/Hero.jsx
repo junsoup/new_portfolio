@@ -12,7 +12,7 @@ export default function Hero() {
     const el = ref.current
     if (!el) return
     const raf = requestAnimationFrame(() => {
-      animate(el, { opacity: 1, transform: 'translateY(0px)' }, { duration: 0.4, easing: 'ease-out' })
+      animate(el, { opacity: 1, transform: 'translateY(0px)' }, { duration: .4, easing: 'ease-out' })
     })
     return () => cancelAnimationFrame(raf)
   }, [])
@@ -25,12 +25,13 @@ export default function Hero() {
         grid place-items-center text-center
         w-screen -ml-[50vw] left-1/2
         overflow-visible
-        [overflow-x:clip]   /* Tailwind arbitrary: clip X only, allow Y to show */
+        [overflow-x:clip]
+        
       "
     >
       <iframe
         id="koi"
-        src="https://junsoup.github.io/koi-app/?headless=true"
+        src="http://junsoup.github.io/koi-app/?headless=true"
         aria-hidden="true"
         style={{
           position: 'absolute',
@@ -40,8 +41,7 @@ export default function Hero() {
           height: `calc(100dvh)`,
           border: '0',
           display: 'block',
-          opacity: 0.5,
-          pointerEvents: 'none',
+          opacity: 0.3,
           zIndex: 0,
         }}
         loading="lazy"
@@ -55,10 +55,12 @@ export default function Hero() {
           left: 0,
           right: 0,
           bottom: 0,
-          height: `calc(96px)`,
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--bg, rgba(0,0,0,0.85)) 100%)",
-          pointerEvents: "none",
+          height: `100%`,
+          backgroundColor: 'var(--bg)',
+          WebkitMaskImage:
+            'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%)',
+          maskImage:
+            'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%)', pointerEvents: "none",
           zIndex: 1,
         }}
       />
@@ -73,7 +75,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-4 text-fg/80 max-w-xl mx-auto">
-          I'm an engineer focused on AI, algorithms, and performant full-stack software.
+          I'm an engineer focused on AI, algorithms, and performant full-stack applications.
         </p>
 
         <div className="mt-6 flex justify-center gap-3">

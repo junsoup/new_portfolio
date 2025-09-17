@@ -16,7 +16,7 @@ export default function About({ id }) {
             I am a software engineer, hobby enthusiast, and bachelor's graduate from
             Oregon State University in CS, with a focus in artificial intelligence.
             I love creating innovative systems and developing algorithms—areas where
-            I excel most. I’m enthusiastic about applying my skills to solve real-world
+            I excel most. I'm enthusiastic about applying my skills to solve real-world
             problems. Whether it’s building robust software or optimizing processes,
             I’m eager to take on new challenges and push technology forward.
           </p>
@@ -33,7 +33,7 @@ export default function About({ id }) {
           <Link href="/blog" className="font-bold hover:text-accent">
             blog
           </Link>
-          ! I’m strongest with Python workflows and data processing, and I’m specifically interested
+          ! I'm strongest with Python workflows, data processing, and frontend development with React. I'm specifically interested
           in algorithms and neural networks. The bullets below are brief summaries of my experience.
         </p>
       </div>
@@ -51,7 +51,7 @@ export default function About({ id }) {
           <div className="rounded-2xl border border-fg/10 p-5">
             <h4 className="text-sm font-semibold tracking-wide uppercase text-fg/70">Languages</h4>
             <ul className="mt-3 flex flex-wrap gap-2">
-              {["Python", "JavaScript", "HTML / CSS"].map((t) => (
+              {["Python", "JavaScript", "HTML / CSS", "React"].map((t) => (
                 <li key={t} className="px-2.5 py-1 rounded-full bg-fg/5 text-sm">
                   {t}
                 </li>
@@ -73,7 +73,7 @@ export default function About({ id }) {
         {/* Additional skills */}
         <div className="mt-8">
           <p className="text-fg/80">
-            I’ve also picked up the following through personal projects and university:
+            I’ve also picked up the following through personal projects and in university:
           </p>
           <div className="mt-4 grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-fg/10 p-5">
@@ -87,7 +87,7 @@ export default function About({ id }) {
             </div>
             <div className="rounded-2xl border border-fg/10 p-5">
               <ul className="flex flex-wrap gap-2">
-                {["THREE.js", "PyTorch / TensorFlow", "Arduino"].map((t) => (
+                {["THREE.js", "PyTorch", "Arduino"].map((t) => (
                   <li key={t} className="px-2.5 py-1 rounded-full bg-fg/5 text-sm">
                     {t}
                   </li>
