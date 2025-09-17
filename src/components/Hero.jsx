@@ -31,7 +31,7 @@ export default function Hero() {
     >
       <iframe
         id="koi"
-        src="http://junsoup.github.io/koi-app/?headless=true"
+        src="https://junsoup.github.io/koi-app/?headless=true"
         aria-hidden="true"
         style={{
           position: 'absolute',
