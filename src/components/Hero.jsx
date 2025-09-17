@@ -1,4 +1,3 @@
-
 // src/components/Hero.jsx
 import { useLayoutEffect, useRef } from 'react'
 import { animate } from '@motionone/dom'
@@ -26,23 +25,30 @@ export default function Hero() {
         w-screen -ml-[50vw] left-1/2
         overflow-visible
         [overflow-x:clip]
-        
+        md:pointer-events-auto
+        select-none
       "
     >
+      {/* Background iframe */}
       <iframe
         id="koi"
         src="https://junsoup.github.io/koi-app/?headless=true"
         aria-hidden="true"
+        className="
+          pointer-events-none md:pointer-events-auto
+          select-none
+        "
         style={{
           position: 'absolute',
           top: `-${NAV_OFFSET}px`,
           left: 0,
           width: '100%',
-          height: `calc(100dvh)`,
+          height: `100dvh`,
           border: '0',
           display: 'block',
-          opacity: 0.3,
+          opacity: 0.2,
           zIndex: 0,
+          touchAction: 'none',
         }}
         loading="lazy"
         referrerPolicy="no-referrer"
@@ -55,19 +61,19 @@ export default function Hero() {
           left: 0,
           right: 0,
           bottom: 0,
-          height: `100%`,
+          height: `30dvh`,
           backgroundColor: 'var(--bg)',
-          WebkitMaskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%)',
-          maskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%)', pointerEvents: "none",
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%)',
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%)',
+          pointerEvents: "none",
           zIndex: 1,
         }}
       />
 
+      {/* Foreground content */}
       <div
         ref={ref}
-        className="relative z-10"
+        className="relative z-10 px-4 sm:px-6 md:px-0"
         style={{ opacity: 0, transform: 'translateY(8px)' }}
       >
         <h1 className="text-5xl font-bold">
@@ -96,4 +102,3 @@ export default function Hero() {
     </section>
   )
 }
-
