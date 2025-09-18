@@ -1,12 +1,25 @@
-# React + Vite
+# New Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site: [junsoup.github.io/new_portfolio](https://junsoup.github.io/new_portfolio)
 
-Currently, two official plugins are available:
+This is my personal portfolio website showcasing my projects, blog, and experiments.  
+It’s built with a modern web stack and includes an embedded interactive demo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Stack
+- [React](https://react.dev/)  
+- [Tailwind CSS](https://tailwindcss.com/)  
+- [Vite](https://vitejs.dev/)  
+- [Wouter](https://github.com/molefrog/wouter)
+- served with Github Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+- **Portfolio Showcase** – Highlighting projects and demos.  
+- **Interactive Hero Section** – Embeds my [Koi App](https://github.com/junsoup/koi-app) via an `iframe`.  
+  - Koi App stack: React, Tailwind, Three.js, Zustand.  
+  - Renders a 3D koi pond with fish movement and water effects.  
+- **Blog Page** – Technical articles and project write-ups:  
+  [junsoup.github.io/new_portfolio/#blog](https://junsoup.github.io/new_portfolio/#blog)
