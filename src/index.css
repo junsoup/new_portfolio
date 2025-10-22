@@ -74,8 +74,6 @@ body {
   background-color: var(--bg);
 }
 
-s
-
 /* used in /content/posts/*.jsx, applied in /pages/Post.jsx */
 .post-content h1 {
   @apply text-4xl font-bold mt-6 mb-4;
